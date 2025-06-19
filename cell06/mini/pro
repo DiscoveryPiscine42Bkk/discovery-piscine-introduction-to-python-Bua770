@@ -4,12 +4,12 @@ work_type = []
 
 while True:
 
-    print("====== ร้านอีสานแซ่บเว่อร์ ======")
-    print("1. ชื่อคนจองร้านอาหาร")
-    print("2. แสดงรายการจอง")
-    print("3. ยกเลิกการจอง")
-    print("4. สรุปการจองร้านอาหาร")
-    print("5. ออกจากระบบ")
+    print("======Smart Farm Tsk Organizer======")
+    print("1. เพิ่มงานฟาร์ม")
+    print("2. แสดงรายงานทั้งหมด")
+    print("3. ลบงาน")
+    print("4. สรุปจำนวนงานในแต่ละประเภท")
+    print("5. ออกจากโปรแกรม")
 
     try:
         Text = int(input("เลือกเมนู (1-5): "))
@@ -23,10 +23,10 @@ while True:
 
 
     if Text == 1:
-        work.append(input("ชื่อจองร้านอาหาร: "))
-        date.append(input("วันที่จอง (dd/mm/yyyy): "))
-        work_type.append(input("โต๊ะ1-2คน/โต๊ะ3-4คน/โต๊ะ5-6: "))
-        print("การจองสำเร็จ")
+        work.append(input("ป้อนชื่องาน: "))
+        date.append(input("ป้อนวันที่ (dd/mm/yyyy): "))
+        work_type.append(input("ประเภทงาน (พืชผัก/ปศุสัตว์/อื่นๆ): "))
+        print("เพิ่มงานสำเร็จ")
     elif Text == 2:
         print("รายการงานทั้งหมด:")
         if len(work) == 0:
@@ -53,5 +53,5 @@ while True:
         for item in count:
             print(f"- {item}: {count[item]} งาน")
     elif Text == 5:
-        print("ขอบคุณที่ใช้บริการร้านอีสานแซ่บเว่อร์")
+        print("ขอบคุณที่ใช้โปรแกรม Smart Farm!")
         break
