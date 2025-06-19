@@ -1,0 +1,57 @@
+work = []
+date = []
+work_type = []
+
+while True:
+
+    print("====== ร้านอีสานแซ่บเว่อร์ ======")
+    print("1. ชื่อคนจองร้านอาหาร")
+    print("2. แสดงรายการจอง")
+    print("3. ยกเลิกการจอง")
+    print("4. สรุปการจองร้านอาหาร")
+    print("5. ออกจากระบบ")
+
+    try:
+        Text = int(input("เลือกเมนู (1-5): "))
+    except ValueError:
+        print("กรุณาใส่ตัวเลขเท่านั้น")
+        continue
+
+    if Text not in [1, 2, 3, 4, 5]:
+        print("กรุณาเลือกเฉพาะเมนู 1-5 เท่านั้น")
+        continue
+
+
+    if Text == 1:
+        work.append(input("ชื่อจองร้านอาหาร: "))
+        date.append(input("วันที่จอง (dd/mm/yyyy): "))
+        work_type.append(input("โต๊ะ1-2คน/โต๊ะ3-4คน/โต๊ะ5-6: "))
+        print("การจองสำเร็จ")
+    elif Text == 2:
+        print("รายการงานทั้งหมด:")
+        if len(work) == 0:
+            print("ยังไม่มีงานในรายการ")
+        else:
+            for i in range(len(work)):
+                print(f"{i+1}. {date[i]} - {work[i]} ({work_type[i]})")
+    elif Text == 3:
+        print("รายการงานทั้งหมด:")
+        for i in range(len(work)):
+            print(f"{i+1}. {date[i]} - {work[i]} ({work_type[i]})")
+        j = int(input("ลำดับของงานที่ต้องการลบ: "))
+        removed = work.pop(j-1)
+        del date[j-1]
+        del work_type[j-1]
+        print(f"ยกเลิกการจอง: {removed} แล้ว")
+    elif Text == 4:
+        count = {}
+        for item in work_type:
+            if item in count:
+                count[item] += 1
+            else:
+                count[item] = 1
+        for item in count:
+            print(f"- {item}: {count[item]} งาน")
+    elif Text == 5:
+        print("ขอบคุณที่ใช้บริการร้านอีสานแซ่บเว่อร์")
+        break
